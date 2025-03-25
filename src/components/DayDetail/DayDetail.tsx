@@ -1,9 +1,9 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import { EventType } from "@Types/index";
 import { generateTimeSlots } from "./utils";
-import Accordian from "@Components/Accordian";
 import Button from "@Components/Button";
 import "./DayDetail.css";
+import Modal, { Overlay } from "@Components/Modal";
 
 type DayDetailProps = {
   events?: EventType[];
@@ -31,14 +31,7 @@ const DayDetail: FC<DayDetailProps> = ({ events = [] }) => {
 
   const renderEvents = (timeSlot: EventType[]) => {
     return timeSlot.map((event) => {
-      return (
-        <li>
-          <Accordian headerText={event.name}>{event.description}</Accordian>
-          <Button size="tiny" corners="square">
-            View More
-          </Button>
-        </li>
-      );
+      return <Event event={event} />;
     });
   };
 
@@ -52,3 +45,22 @@ const DayDetail: FC<DayDetailProps> = ({ events = [] }) => {
 };
 
 export default DayDetail;
+
+const Event: FC<{ event: EventType }> = ({ event }) => {
+  const [showModal, setShowModal] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setShowModal(true)} size="small">
+        Open Modal
+      </Button>
+      <Overlay visible={showModal} clickHandler={() => setShowModal(false)} />
+      <Modal visible={showModal}>
+        <div className="DayDetail__modal-content">
+          <h2>{event.name}</h2>
+          <p>{event.description}</p>
+          <Button onClick={() => setShowModal(false)}>Close</Button>
+        </div>
+      </Modal>
+    </>
+  );
+};

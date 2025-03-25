@@ -27,7 +27,7 @@ import DayDetailDemo, {
 import CalendarDemo, {
   loader as CalendarDemoLoader,
 } from "@Routes/Calendar/CalendarDemo";
-import ModalDemo from "@Routes/ModalDemo/ModalDemo";
+import { ModalDemo } from "@Routes/ModalDemo";
 import ErrorPage from "./error-page";
 import "./index.css";
 

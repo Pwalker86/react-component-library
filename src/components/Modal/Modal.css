@@ -3,13 +3,13 @@
 }
 
 .Modal__overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   background-color: black;
   opacity: 20%;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   z-index: 500;
 }
 
@@ -21,6 +21,8 @@
   right: 0;
   margin: 0 auto;
   width: 350px;
+  /*min-width: 350px;*/
+  /*width: 80%;*/
   min-height: 350px;
   border-radius: 8px;
   padding: 8px;
