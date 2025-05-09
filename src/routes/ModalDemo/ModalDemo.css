@@ -22,3 +22,43 @@
   margin-top: 4px;
   margin-bottom: 4px;
 }
+
+.ModalDemo__section {
+  margin-bottom: 40px;
+  max-width: 800px;
+}
+
+.ModalDemo__portalContainer {
+  margin-top: 20px;
+  border: 2px dashed #4a90e2;
+  padding: 20px;
+  background-color: rgba(74, 144, 226, 0.1);
+  position: relative;
+  min-height: 120px;
+  border-radius: 4px;
+}
+
+.ModalDemo__portalLabel {
+  color: #4a90e2;
+  font-style: italic;
+  margin: 0;
+}
+
+.ModalDemo__customModal {
+  background-color: #f8f9fa;
+}
+
+.ModalDemo__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.ModalDemo__gridItem {
+  background-color: #eef2f7;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
