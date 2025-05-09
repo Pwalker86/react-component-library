@@ -15,6 +15,11 @@ export const seedEvents = (events: EventType[]): void => {
         `2025/${m + 1}/${randomDay}`,
       ).toLocaleString();
       const dateDelimiter = ",";
+      // Generate a random length that's a multiple of 30 minutes (between 30 and 180 minutes)
+      const lengthOptions = [30, 60, 90, 120, 150, 180];
+      const randomLengthIndex = Math.floor(Math.random() * lengthOptions.length);
+      const eventLength = lengthOptions[randomLengthIndex];
+      
       const event: EventType = {
         id: id,
         name: "test Event " + m,
@@ -24,6 +29,7 @@ export const seedEvents = (events: EventType[]): void => {
             .padStart(2, "0") + ":00",
         date: eventDate.slice(0, eventDate.indexOf(dateDelimiter)),
         description: desc,
+        length: eventLength, // Adding the length property
       };
       events.push(event);
     }

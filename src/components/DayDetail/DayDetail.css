@@ -1,4 +1,178 @@
-.DayDetail__event-list {
-  list-style: none;
-  padding-left: 0;
+.DayDetail {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  overflow-y: auto;
 }
+
+.DayDetail__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eaeaea;
+  color: #333;
+}
+
+.DayDetail__timeline {
+  position: relative;
+  display: flex;
+  border-left: 2px solid #eaeaea;
+  margin-left: 60px;
+  padding-bottom: 30px;
+  min-height: 1440px; /* 24 hours * 60px per hour */
+}
+
+.DayDetail__time-slot {
+  position: absolute;
+  left: 0;
+  min-height: 60px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  pointer-events: none; /* Allow clicking through to events */
+}
+
+.DayDetail__time-marker {
+  position: absolute;
+  left: -62px;
+  top: 0;
+  width: 60px;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 0.85rem;
+  color: #666;
+  height: 30px;
+  line-height: 30px;
+}
+
+.DayDetail__events-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 20px;
+  z-index: 1;
+}
+
+.DayDetail__event-item {
+  position: absolute;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid #3498db;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+.DayDetail__event-item:hover {
+  opacity: 1;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.DayDetail__event-item--overlap-1 {
+  left: 20px;
+  z-index: 2;
+}
+
+.DayDetail__event-item--overlap-2 {
+  left: 40px;
+  z-index: 3;
+}
+
+.DayDetail__event-item--overlap-3 {
+  left: 60px;
+  z-index: 4;
+}
+
+.DayDetail__event-content {
+  position: relative;
+}
+
+.DayDetail__event-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.DayDetail__event-info {
+  padding-right: 70px; /* Make space for the button */
+}
+
+.DayDetail__event-name {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.DayDetail__event-duration {
+  font-weight: normal;
+  font-size: 0.85rem;
+  color: #555;
+  margin-left: 6px;
+}
+
+.DayDetail__event-description {
+  margin: 4px 0 0 0;
+  padding: 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.DayDetail__modal-content {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.DayDetail__modal-content h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.DayDetail__modal-duration,
+.DayDetail__modal-time {
+  font-weight: 500;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 5px 0;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.DayDetail__empty-slot {
+  color: #999;
+  font-style: italic;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.DayDetail__hour-separator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed #e0e0e0;
+  width: 100%;
+  top: 15px;
+  z-index: 0;
+}
+
+/* Color variations for events to distinguish them */
+.DayDetail__event-color-1 { border-left-color: #3498db; background-color: rgba(52, 152, 219, 0.1); }
+.DayDetail__event-color-2 { border-left-color: #2ecc71; background-color: rgba(46, 204, 113, 0.1); }
+.DayDetail__event-color-3 { border-left-color: #e74c3c; background-color: rgba(231, 76, 60, 0.1); }
+.DayDetail__event-color-4 { border-left-color: #f39c12; background-color: rgba(243, 156, 18, 0.1); }
+.DayDetail__event-color-5 { border-left-color: #9b59b6; background-color: rgba(155, 89, 182, 0.1); }
+.DayDetail__event-color-6 { border-left-color: #1abc9c; background-color: rgba(26, 188, 156, 0.1); }
