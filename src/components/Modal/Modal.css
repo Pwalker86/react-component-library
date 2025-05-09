@@ -2,28 +2,98 @@
   display: none;
 }
 
+.Modal__visible {
+  display: block;
+  /* animation: modalFadeIn 0.3s ease-out; */
+}
+
 .Modal__overlay {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: black;
-  opacity: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   z-index: 500;
 }
 
 .Modal__container {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   background-color: white;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 350px;
-  /*min-width: 350px;*/
-  /*width: 80%;*/
-  min-height: 350px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
-  padding: 8px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.Modal__size-small {
+  width: 350px;
+  min-height: 200px;
+}
+
+.Modal__size-medium {
+  width: 500px;
+  min-height: 300px;
+}
+
+.Modal__size-large {
+  width: 800px;
+  min-height: 400px;
+}
+
+.Modal__size-full {
+  width: 90%;
+  height: 90%;
+}
+
+.Modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.Modal__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.Modal__close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.Modal__close-button:hover {
+  background-color: #f0f0f0;
+}
+
+.Modal__body {
+  padding: 16px;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }

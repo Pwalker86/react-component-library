@@ -53,8 +53,7 @@ const Event: FC<{ event: EventType }> = ({ event }) => {
       <Button onClick={() => setShowModal(true)} size="small">
         Open Modal
       </Button>
-      <Overlay visible={showModal} clickHandler={() => setShowModal(false)} />
-      <Modal visible={showModal}>
+      <Modal visible={showModal} onClose={() => setShowModal(false)} size="large" showCloseButton={true} >
         <div className="DayDetail__modal-content">
           <h2>{event.name}</h2>
           <p>{event.description}</p>
